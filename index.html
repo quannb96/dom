@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoM-DOcument-Object-Model</title>
+</head>
+<body>
+    <p id="demo1"></p>
+    <script>
+        document.getElementById("demo1").innerHTML = "Hello World!"
+    </script>
+    <hr>
+
+<!-- ------------ -->
+    <p id="intro">My name is Quan</p>
+    <p id="demo2"></p>
+    <script>
+        const element = document.getElementById("intro");
+        document.getElementById("demo2").innerHTML = "What about you?" + " " + element.innerHTML;
+    </script>
+<hr>
+    <!-- <script>
+        document.getElementById("demo2").innerHTML = "What about you?" + " " + document.getElementById("intro").innerHTML
+    </script> -->
+
+<!-- This example finds all <p> elements: -->
+    <p>Finding HTML Elements by Tag Name.</p>
+    <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+
+    <p id="demo"></p>
+
+    <script>
+        const element = document.getElementsByTagName("p");
+
+        document.getElementById("demo").innerHTML = 'The text in first paragraph (index 0) is: ' + element[0].innerHTML;
+    </script>
+<hr>
+
+<!-- This example finds the element with id="main", and then finds all <p> elements inside "main": -->
+    <div id="main"> 
+        <p>Finding HTML Elements by Tag Name</p>
+        <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+    </div>
+    
+    <p id="demo"></p>
+    
+    <script>
+        const x = document.getElementById("main");
+        const y = x.getElementsByTagName("p");
+    
+        document.getElementById("demo").innerHTML = 
+        'The first paragraph (index 0) inside "main" is: ' + y[0].innerHTML;
+    </script>
+<hr>
+
+<!-- If you want to find all HTML elements with the same class name, use getElementsByClassName().
+This example returns a list of all elements with class="intro". -->
+    <p>Finding HTML Elements by Class Name.</p>
+    <p class="intro">Hello World!</p>
+    <p class="intro">This example demonstrates the <b>getElementsByClassName</b> method.</p>
+
+    <p id="demo"></p>
+
+    <script>
+    const x = document.getElementsByClassName("intro");
+    document.getElementById("demo").innerHTML = 
+    'The first paragraph (index 0) with class="intro" is: ' + x[0].innerHTML;
+    </script>
+<hr>
+
+<!-- changes the style of the HTML element with id="id1", when the user clicks a button -->
+    <h1 id="id1">My Heading 1</h1>
+
+    <button type="button" 
+    onclick="document.getElementById('id1').style.color = 'red'">
+    Click Me!</button>
+<hr>
+
+    <!-- Create the Full Animation Using JavaScript -->
+        <style>
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        }
+        #animate {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background-color: red;
+        }
+        </style>
+
+    <p><button onclick="myMove()">Click Me</button></p> 
+
+    <div id ="container">
+    <div id ="animate"></div>
+    </div>
+
+    <script>
+    function myMove() {
+    let id = null;
+    const elem = document.getElementById("animate");   
+    let pos = 0;
+    clearInterval(id);
+    id = setInterval(frame, 2);  
+    // 2: giay, s
+    function frame() {
+        if (pos == 350) {
+        clearInterval(id);
+        } else {
+        pos++; 
+        elem.style.top = pos + "px"; 
+        elem.style.left = pos + "px"; 
+        }
+    }
+    }
+    </script>
+
+
+</body>
+</html>
